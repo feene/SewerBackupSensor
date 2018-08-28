@@ -115,10 +115,11 @@ void loop() {
 
   // Short delay to allow buttons to properly settle
   sleep(5000);
+  value = digitalRead(PRIMARY_BUTTON_PIN);
 
   if (value != sentValue) {
     // Value has changed from last transmission, send the updated value
-    send(msg.set(value==HIGH));
+    send(msg.set(value==LOW));
     sentValue = value;
   }
 
